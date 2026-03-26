@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GANZXI.XTZ STORE</title>
+    <style>
+        :root { --main: #ff0000; --bg: #0a0a0a; --card: #161616; --text: #ffffff; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 15px; padding-bottom: 150px; }
+        .container { max-width: 500px; margin: auto; }
+        
+        .header { text-align: center; padding: 20px; border: 2px solid var(--main); border-radius: 20px; margin-bottom: 20px; background: #111; box-shadow: 0 0 15px rgba(255,0,0,0.3); }
+        .header h1 { margin: 0; font-size: 22px; color: var(--main); letter-spacing: 2px; }
+
+        .category { margin-top: 20px; background: var(--main); color: white; padding: 5px 12px; border-radius: 4px; font-weight: bold; font-size: 12px; display: inline-block; text-transform: uppercase; }
+        
+        .product-card { display: flex; justify-content: space-between; align-items: center; background: var(--card); padding: 12px; border-radius: 10px; margin: 8px 0; border: 1px solid #333; }
+        .info b { display: block; font-size: 13px; }
+        .info span { color: #00ff88; font-weight: bold; font-size: 14px; }
+        
+        .btn-add { background: var(--main); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+
+        .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #1a1a1a; padding: 15px; border-top: 2px solid var(--main); z-index: 99; box-shadow: 0 -5px 15px rgba(0,0,0,0.5); }
+        .total-price { font-size: 18px; color: var(--main); font-weight: bold; text-align: center; margin-bottom: 10px; }
+        .btn-checkout { width: 100%; background: #28a745; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; }
+
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: white; color: #222; padding: 20px; border-radius: 15px; width: 85%; max-width: 350px; text-align: center; position: relative; max-height: 90vh; overflow-y: auto; }
+        .qris-img { width: 100%; border-radius: 10px; margin: 10px 0; border: 1px solid #ddd; }
+        .close-btn { position: absolute; top: 10px; right: 15px; font-size: 20px; color: red; cursor: pointer; font-weight: bold; }
+        .btn-wa { display: block; padding: 12px; margin-top: 10px; border-radius: 8px; font-weight: bold; color: white; background: #25d366; text-decoration: none; border: none; width: 100%; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header"><h1>GANZXI.XTZ STORE</h1></div>
+
+    <!-- PRODUK UTAMA -->
+    <div class="product-card"><div class="info"><b>FILE NEMBAK ANGIN HS</b><span>Rp 50.000</span></div><button class="btn-add" onclick="tambah('FILE NEMBAK ANGIN HS', 50000)">+</button></div>
+    <div class="product-card"><div class="info"><b>BADAN HS PROMO</b><span>Rp 20.000</span></div><button class="btn-add" onclick="tambah('BADAN HS PROMO', 20000)">+</button></div>
+
+    <!-- AIMLOCK -->
+    <div class="category">AIMLOCK VIP</div>
+    <div class="product-card"><div class="info"><b>AIMLOCK 50%</b><span>Rp 10.000</span></div><button class="btn-add" onclick="tambah('AIMLOCK 50%', 10000)">+</button></div>
+    <div class="product-card"><div class="info"><b>AIMLOCK 70%</b><span>Rp 15.000</span></div><button class="btn-add" onclick="tambah('AIMLOCK 70%', 15000)">+</button></div>
+    <div class="product-card"><div class="info"><b>AIMLOCK 90%</b><span>Rp 20.000</span></div><button class="btn-add" onclick="tambah('AIMLOCK 90%', 20000)">+</button></div>
+
+    <!-- AIMBOT -->
+    <div class="category">AIMBOT VIP</div>
+    <div class="product-card"><div class="info"><b>AIMBOT 50%</b><span>Rp 15.000</span></div><button class="btn-add" onclick="tambah('AIMBOT 50%', 15000)">+</button></div>
+    <div class="product-card"><div class="info"><b>AIMBOT 70%</b><span>Rp 20.000</span></div><button class="btn-add" onclick="tambah('AIMBOT 70%', 20000)">+</button></div>
+    <div class="product-card"><div class="info"><b>AIMBOT 90%</b><span>Rp 30.000</span></div><button class="btn-add" onclick="tambah('AIMBOT 90%', 30000)">+</button></div>
+
+    <!-- REGEDIT -->
+    <div class="category">REGEDIT VIP</div>
+    <div class="product-card"><div class="info"><b>REGE 30%</b><span>Rp 5.000</span></div><button class="btn-add" onclick="tambah('REGE 30%', 5000)">+</button></div>
+    <div class="product-card"><div class="info"><b>REGE 50%</b><span>Rp 10.000</span></div><button class="btn-add" onclick="tambah('REGE 50%', 10000)">+</button></div>
+    <div class="product-card"><div class="info"><b>REGE 70%</b><span>Rp 15.000</span></div><button class="btn-add" onclick="tambah('REGE 70%', 15000)">+</button></div>
+    <div class="product-card"><div class="info"><b>REGE 90%</b><span>Rp 30.000</span></div><button class="btn-add" onclick="tambah('REGE 90%', 30000)">+</button></div>
+
+    <!-- AIM DRAG -->
+    <div class="category">AIM DRAG HEAD VIP</div>
+    <div class="product-card"><div class="info"><b>AIM DRAG 30%</b><span>Rp 5.000</span></div><button class="btn-add" onclick="tambah('AIM DRAG 30%', 5000)">+</button></div>
+    <div class="product-card"><div class="info"><b>AIM DRAG 65%</b><span>Rp 10.000</span></div><button class="btn-add" onclick="tambah('AIM DRAG 65%', 10000)">+</button></div>
+    <div class="product-card"><div class="info"><b>AIM DRAG 80%</b><span>Rp 20.000</span></div><button class="btn-add" onclick="tambah('AIM DRAG 80%', 20000)">+</button></div>
+    <div class="product-card"><div class="info"><b>AIM DRAG X HEAD</b><span>Rp 15.000</span></div><button class="btn-add" onclick="tambah('AIM DRAG X HEAD', 15000)">+</button></div>
+    <div class="product-card"><div class="info"><b>AIM DRAG SUPER VIP</b><span>Rp 25.000</span></div><button class="btn-add" onclick="tambah('AIM DRAG SUPER VIP', 25000)">+</button></div>
+    <div class="product-card"><div class="info"><b>AIM DRAG TRICK</b><span>Rp 10.000</span></div><button class="btn-add" onclick="tambah('AIM DRAG TRICK', 10000)">+</button></div>
+    <div class="product-card"><div class="info"><b>AIM DRAG LOCK BRUTAL</b><span>Rp 30.000</span></div><button class="btn-add" onclick="tambah('AIM DRAG LOCK BRUTAL', 30000)">+</button></div>
+
+    <!-- STABILIZER -->
+    <div class="category">STABILIZER AIM VIP</div>
+    <div class="product-card"><div class="info"><b>STABILIZER X REGE</b><span>Rp 15.000</span></div><button class="btn-add" onclick="tambah('STABILIZER X REGE', 15000)">+</button></div>
+    <div class="product-card"><div class="info"><b>STABILIZER</b><span>Rp 5.000</span></div><button class="btn-add" onclick="tambah('STABILIZER', 5000)">+</button></div>
+    <div class="product-card"><div class="info"><b>STABILIZER V1</b><span>Rp 8.000</span></div><button class="btn-add" onclick="tambah('STABILIZER V1', 8000)">+</button></div>
+    <div class="product-card"><div class="info"><b>STABILIZER V2</b><span>Rp 10.000</span></div><button class="btn-add" onclick="tambah('STABILIZER V2', 10000)">+</button></div>
+    <div class="product-card"><div class="info"><b>STABILIZER x AIMLOCK</b><span>Rp 12.000</span></div><button class="btn-add" onclick="tambah('STABILIZER x AIMLOCK', 12000)">+</button></div>
+
+    <!-- HEADLOCK -->
+    <div class="category">HEADLOCK VIP</div>
+    <div class="product-card"><div class="info"><b>HEADLOCK 55%</b><span>Rp 10.000</span></div><button class="btn-add" onclick="tambah('HEADLOCK 55%', 10000)">+</button></div>
+    <div class="product-card"><div class="info"><b>HEADLOCK 65%</b><span>Rp 15.000</span></div><button class="btn-add" onclick="tambah('HEADLOCK 65%', 15000)">+</button></div>
+    <div class="product-card"><div class="info"><b>HEADLOCK 70%</b><span>Rp 20.000</span></div><button class="btn-add" onclick="tambah('HEADLOCK 70%', 20000)">+</button></div>
+    <div class="product-card"><div class="info"><b>HEADLOCK 80%</b><span>Rp 30.000</span></div><button class="btn-add" onclick="tambah('HEADLOCK 80%', 30000)">+</button></div>
+    <div class="product-card"><div class="info"><b>HEADLOCK 100%</b><span>Rp 40.000</span></div><button class="btn-add" onclick="tambah('HEADLOCK 100%', 40000)">+</button></div>
+</div>
+
+<div class="cart-bar">
+    <div class="total-price" id="total">Total: Rp 0</div>
+    <button class="btn-checkout" onclick="bukaModal()">BAYAR SEKARANG</button>
+</div>
+
+<div id="payModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="tutupModal()">X</span>
+        <h3>Pembayaran QRIS</h3>
+        <p id="total-info" style="font-weight:bold; color: #d63031; margin-bottom: 5px;"></p>
+        
+        <img src="https://i.postimg.cc/9X9gfsvn/IMG-20260226-WA0028(6).jpg" class="qris-img">
+        
+        <button class="btn-wa" onclick="bayarWA()">Konfirmasi & Kirim Bukti</button>
+    </div>
+</div>
+
+<script>
+    let keranjang = [];
+    let totalHarga = 0;
+
+    function tambah(nama, harga) {
+        keranjang.push(nama);
+        totalHarga += harga;
+        document.getElementById('total').innerText = "Total: Rp " + totalHarga.toLocaleString('id-ID');
+    }
+
+    function bukaModal() {
+        if(keranjang.length === 0) { alert("Pilih menu!"); return; }
+        document.getElementById('total-info').innerText = "Tagihan: Rp " + totalHarga.toLocaleString('id-ID');
+        document.getElementById('payModal').style.display = 'flex';
+    }
+
+    function tutupModal() { document.getElementById('payModal').style.display = 'none'; }
+
+    function bayarWA() {
+        let noWA = "6283870941215"; 
+        let pesan = `Halo TOKO GANZXI,%0A%0ASaya mau beli:%0A- ${keranjang.join('%0A- ')}%0A%0ATotal: *Rp ${totalHarga.toLocaleString('id-ID')}*%0ASudah transfer via QRIS.`;
+        window.open(`https://wa.me/${noWA}?text=${pesan}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
